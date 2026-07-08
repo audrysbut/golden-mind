@@ -16,7 +16,7 @@ export default function App() {
   const params = new URLSearchParams(window.location.search)
   const initialRoomId = params.get('room')
 
-  const [screen, setScreen] = useState<'home' | 'lobby' | 'game'>(initialRoomId ? 'lobby' : 'home')
+  const [screen, setScreen] = useState<'home' | 'lobby' | 'game'>('home')
   const [playerName, setPlayerName] = useState('')
   const [error, setError] = useState<string | null>(null)
 
@@ -227,7 +227,8 @@ export default function App() {
         onStartSolo={handleStartSolo}
         onCreateRoom={handleCreateRoom}
         onJoinRoom={handleJoinRoom}
-        error={error}
+        error={error || peerState.error}
+        initialRoomId={initialRoomId ?? undefined}
       />
     )
   }
@@ -239,6 +240,7 @@ export default function App() {
         isHost={peerState.isHost}
         roomId={peerState.peerId || initialRoomId || ''}
         onStartGame={handleStartGame}
+        error={peerState.error}
       />
     )
   }

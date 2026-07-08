@@ -5,9 +5,10 @@ interface LobbyProps {
   isHost: boolean
   roomId: string
   onStartGame: () => void
+  error?: string | null
 }
 
-export default function Lobby({ players, isHost, roomId, onStartGame }: LobbyProps) {
+export default function Lobby({ players, isHost, roomId, onStartGame, error }: LobbyProps) {
   const inviteUrl = `${window.location.origin}/golden-mind/?room=${roomId}`
 
   const copyLink = async () => {
@@ -56,6 +57,7 @@ export default function Lobby({ players, isHost, roomId, onStartGame }: LobbyPro
         {!isHost && (
           <p className="waiting-text">Waiting for host to start the game...</p>
         )}
+        {error && <p className="error">{error}</p>}
       </div>
     </div>
   )

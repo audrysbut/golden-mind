@@ -7,12 +7,13 @@ interface HomeScreenProps {
   onCreateRoom: (name: string) => void
   onJoinRoom: (name: string, roomId: string) => void
   error: string | null
+  initialRoomId?: string
 }
 
-export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, error }: HomeScreenProps) {
+export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, error, initialRoomId }: HomeScreenProps) {
   const [name, setName] = useState(() => localStorage.getItem(STORAGE_KEY) || '')
-  const [roomId, setRoomId] = useState('')
-  const [mode, setMode] = useState<'menu' | 'solo' | 'multi'>('menu')
+  const [roomId, setRoomId] = useState(initialRoomId ?? '')
+  const [mode, setMode] = useState<'menu' | 'solo' | 'multi'>(initialRoomId ? 'multi' : 'menu')
 
   useEffect(() => {
     if (name) localStorage.setItem(STORAGE_KEY, name)
@@ -92,6 +93,7 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
               onChange={e => setRoomId(e.target.value)}
               placeholder="Paste room ID"
               maxLength={36}
+              readOnly={!!initialRoomId}
             />
             <button className="btn btn-accent" onClick={handleJoin} disabled={!name.trim() || !roomId.trim()}>
               Join
