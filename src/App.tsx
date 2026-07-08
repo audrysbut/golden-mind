@@ -219,6 +219,12 @@ export default function App() {
     }
   }, [peerState, sendChatMessage, handleSoloGuess])
 
+  useEffect(() => {
+    if (gameState.phase !== 'lobby' && screen === 'lobby') {
+      setScreen('game')
+    }
+  }, [gameState.phase, screen])
+
   const displayState = isHost || peerState.connections.length > 0 ? gameState : soloGameState
 
   if (screen === 'home') {
