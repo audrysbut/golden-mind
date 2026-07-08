@@ -80,10 +80,12 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
             maxLength={20}
             autoFocus
           />
-          <button className="btn btn-primary" onClick={handleCreate} disabled={!name.trim()}>
-            Create Game
-          </button>
-          <div className="divider"><span>or</span></div>
+          {!initialRoomId && (
+            <button className="btn btn-primary" onClick={handleCreate} disabled={!name.trim()}>
+              Create Game
+            </button>
+          )}
+          {!initialRoomId && <div className="divider"><span>or</span></div>}
           <label htmlFor="room-id">Room ID</label>
           <div className="join-row">
             <input
