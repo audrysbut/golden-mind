@@ -1,0 +1,1256 @@
+[
+  {
+    "id": 1,
+    "answer": "Albert Einstein",
+    "acceptableAnswers": ["einstein", "albert einstein"],
+    "hints": [
+      "I was born in Ulm, Germany in 1879",
+      "My famous equation is E=mc²",
+      "I won the Nobel Prize for the photoelectric effect, not relativity"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 2,
+    "answer": "Marie Curie",
+    "acceptableAnswers": ["marie curie", "curie", "maria sklodowska-curie"],
+    "hints": [
+      "I was born in Warsaw, Poland in 1867",
+      "I am the only person to win Nobel Prizes in two different sciences",
+      "I discovered the elements polonium and radium"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 3,
+    "answer": "Leonardo da Vinci",
+    "acceptableAnswers": ["leonardo da vinci", "da vinci", "leonardo"],
+    "hints": [
+      "I lived during the Italian Renaissance",
+      "I painted the Mona Lisa",
+      "I also designed flying machines and anatomical studies"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 4,
+    "answer": "William Shakespeare",
+    "acceptableAnswers": ["william shakespeare", "shakespeare", "the bard"],
+    "hints": [
+      "I was born in Stratford-upon-Avon in 1564",
+      "I wrote Romeo and Juliet and Hamlet",
+      "My body of work includes 37 plays and 154 sonnets"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 5,
+    "answer": "Nelson Mandela",
+    "acceptableAnswers": ["nelson mandela", "mandela", "madiba"],
+    "hints": [
+      "I was born in Mvezo, South Africa in 1918",
+      "I spent 27 years in prison for my activism",
+      "I became the first black president of South Africa"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 6,
+    "answer": "Cleopatra",
+    "acceptableAnswers": ["cleopatra", "cleopatra vii"],
+    "hints": [
+      "I was the last active ruler of ancient Egypt",
+      "I was known for my alliances with Julius Caesar and Mark Antony",
+      "I was a member of the Ptolemaic dynasty, of Greek origin"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 7,
+    "answer": "Mahatma Gandhi",
+    "acceptableAnswers": ["mahatma gandhi", "gandhi", "mohandas gandhi"],
+    "hints": [
+      "I was born in Porbandar, India in 1869",
+      "I led India to independence through nonviolent resistance",
+      "I am known as the Father of the Nation in India"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 8,
+    "answer": "Isaac Newton",
+    "acceptableAnswers": ["isaac newton", "newton", "sir isaac newton"],
+    "hints": [
+      "I was born in Woolsthorpe, England in 1643",
+      "An apple falling from a tree inspired my greatest work",
+      "I formulated the laws of motion and universal gravitation"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 9,
+    "answer": "Frida Kahlo",
+    "acceptableAnswers": ["frida kahlo", "kahlo"],
+    "hints": [
+      "I was born in Coyoacan, Mexico in 1907",
+      "My self-portraits often depict my physical and emotional pain",
+      "My unibrow and traditional Tehuana dresses became my trademark"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 10,
+    "answer": "Amelia Earhart",
+    "acceptableAnswers": ["amelia earhart", "earhart"],
+    "hints": [
+      "I was born in Atchison, Kansas in 1897",
+      "I was the first woman to fly solo across the Atlantic Ocean",
+      "I mysteriously disappeared over the Pacific Ocean in 1937"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 11,
+    "answer": "Martin Luther King Jr.",
+    "acceptableAnswers": ["martin luther king jr", "mlk", "martin luther king", "mlk jr"],
+    "hints": [
+      "I was born in Atlanta, Georgia in 1929",
+      "I delivered the I Have a Dream speech in Washington D.C.",
+      "I was awarded the Nobel Peace Prize at age 35"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 12,
+    "answer": "Ada Lovelace",
+    "acceptableAnswers": ["ada lovelace", "lovelace", "ada byron"],
+    "hints": [
+      "I was born in London in 1815, the daughter of Lord Byron",
+      "I wrote the first algorithm intended for a machine",
+      "I am considered the worlds first computer programmer"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 13,
+    "answer": "Winston Churchill",
+    "acceptableAnswers": ["winston churchill", "churchill", "sir winston churchill"],
+    "hints": [
+      "I was born in Oxfordshire, England in 1874",
+      "I served as Prime Minister during World War II",
+      "My V for Victory sign and cigar are iconic symbols"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 14,
+    "answer": "Mozart",
+    "acceptableAnswers": ["mozart", "wolfgang amadeus mozart", "wolfgang mozart"],
+    "hints": [
+      "I was born in Salzburg, Austria in 1756",
+      "I was a child prodigy who began composing at age five",
+      "I wrote over 600 works including The Magic Flute and Requiem"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 15,
+    "answer": "Abraham Lincoln",
+    "acceptableAnswers": ["abraham lincoln", "lincoln", "abe lincoln"],
+    "hints": [
+      "I was born in a log cabin in Kentucky in 1809",
+      "I issued the Emancipation Proclamation",
+      "I was the 16th president of the United States"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 16,
+    "answer": "Joan of Arc",
+    "acceptableAnswers": ["joan of arc", "jeanne d'arc", "the maid of orleans"],
+    "hints": [
+      "I was born in Domremy, France around 1412",
+      "I led the French army to victory at Orleans when I was a teenager",
+      "I was canonized as a saint in 1920"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 17,
+    "answer": "Charles Darwin",
+    "acceptableAnswers": ["charles darwin", "darwin"],
+    "hints": [
+      "I was born in Shrewsbury, England in 1809",
+      "I traveled on the HMS Beagle for five years",
+      "My theory of evolution by natural selection changed biology forever"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 18,
+    "answer": "Nikola Tesla",
+    "acceptableAnswers": ["nikola tesla", "tesla"],
+    "hints": [
+      "I was born in Smiljan, Croatia in 1856",
+      "I invented the alternating current induction motor",
+      "The SI unit of magnetic flux density is named after me"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 19,
+    "answer": "Rosa Parks",
+    "acceptableAnswers": ["rosa parks", "parks"],
+    "hints": [
+      "I was born in Tuskegee, Alabama in 1913",
+      "I refused to give up my seat on a public bus",
+      "My act of defiance sparked the Montgomery Bus Boycott"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 20,
+    "answer": "Vincent van Gogh",
+    "acceptableAnswers": ["vincent van gogh", "van gogh", "vangogh"],
+    "hints": [
+      "I was born in Zundert, Netherlands in 1853",
+      "I painted Starry Night and Sunflowers",
+      "I only sold one painting during my lifetime but am now one of the most famous artists"
+    ],
+    "category": "Famous Person"
+  },
+  {
+    "id": 21,
+    "answer": "Paris",
+    "acceptableAnswers": ["paris"],
+    "hints": [
+      "I am known as the City of Light",
+      "My most famous landmark was built for the 1889 World's Fair",
+      "I am the capital of France"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 22,
+    "answer": "Tokyo",
+    "acceptableAnswers": ["tokyo"],
+    "hints": [
+      "I was formerly known as Edo",
+      "I am home to the busiest pedestrian crossing in the world",
+      "I am the capital and largest city of Japan"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 23,
+    "answer": "Rome",
+    "acceptableAnswers": ["rome", "roma"],
+    "hints": [
+      "I am built on seven hills",
+      "I contain an independent city-state within my borders",
+      "I am the capital of Italy and was the center of a vast ancient empire"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 24,
+    "answer": "New York City",
+    "acceptableAnswers": ["new york city", "new york", "nyc", "the big apple"],
+    "hints": [
+      "I am known as the Big Apple",
+      "Central Park is located in the middle of my most famous borough",
+      "My five boroughs include Manhattan, Brooklyn, Queens, the Bronx, and Staten Island"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 25,
+    "answer": "Cairo",
+    "acceptableAnswers": ["cairo", "al qahirah"],
+    "hints": [
+      "I am located on the Nile River delta",
+      "The famous pyramids are on my outskirts in Giza",
+      "I am the capital and largest city of Egypt"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 26,
+    "answer": "Sydney",
+    "acceptableAnswers": ["sydney"],
+    "hints": [
+      "My harbor features a iconic opera house with sail-shaped shells",
+      "I hosted the 2000 Summer Olympics",
+      "I am the largest city in Australia"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 27,
+    "answer": "Venice",
+    "acceptableAnswers": ["venice", "venezia"],
+    "hints": [
+      "I am built on more than 100 small islands",
+      "My main transportation is by boat along canals",
+      "I am known for my gondolas and the annual Carnival"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 28,
+    "answer": "Istanbul",
+    "acceptableAnswers": ["istanbul", "constantinople", "byzantium"],
+    "hints": [
+      "I am the only city in the world spanning two continents",
+      "I was formerly known as Constantinople",
+      "My historic center straddles Europe and Asia across the Bosphorus Strait"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 29,
+    "answer": "Beijing",
+    "acceptableAnswers": ["beijing", "peking"],
+    "hints": [
+      "The Forbidden City is located within my borders",
+      "I hosted the 2008 Summer Olympics",
+      "I am the capital of China"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 30,
+    "answer": "Rio de Janeiro",
+    "acceptableAnswers": ["rio de janeiro", "rio", "rio de janeiro city"],
+    "hints": [
+      "My famous beach is Copacabana",
+      "A giant statue of Christ stands on a mountain overlooking me",
+      "I hosted the 2016 Summer Olympics and am known for my carnival"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 31,
+    "answer": "Moscow",
+    "acceptableAnswers": ["moscow"],
+    "hints": [
+      "Saint Basils Cathedral with its colorful onion domes is in my center",
+      "The Kremlin is my historic fortified complex",
+      "I am the capital and largest city of Russia"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 32,
+    "answer": "London",
+    "acceptableAnswers": ["london"],
+    "hints": [
+      "The River Thames flows through my center",
+      "My underground railway system is the oldest in the world",
+      "I am the capital of the United Kingdom"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 33,
+    "answer": "Dubai",
+    "acceptableAnswers": ["dubai"],
+    "hints": [
+      "My skyline includes the worlds tallest building",
+      "I have artificial islands shaped like palm trees and a world map",
+      "I am the most populous city in the United Arab Emirates"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 34,
+    "answer": "Bangkok",
+    "acceptableAnswers": ["bangkok", "krung thep"],
+    "hints": [
+      "My name in Thai is one of the longest place names in the world",
+      "I am known for my ornate temples and floating markets",
+      "I am the capital of Thailand"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 35,
+    "answer": "Machu Picchu",
+    "acceptableAnswers": ["machu picchu"],
+    "hints": [
+      "I sit high in the Andes Mountains",
+      "I was built by an ancient civilization around 1450",
+      "I am a 15th-century Inca citadel in Peru"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 36,
+    "answer": "Great Wall of China",
+    "acceptableAnswers": ["great wall of china", "the great wall", "changcheng"],
+    "hints": [
+      "I stretch over 13,000 miles across northern China",
+      "I was built over centuries by multiple dynasties",
+      "I was constructed to protect against invasions from the north"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 37,
+    "answer": "Colosseum",
+    "acceptableAnswers": ["colosseum", "roman colosseum", "flavian amphitheatre"],
+    "hints": [
+      "I could hold up to 80,000 spectators in ancient times",
+      "Gladiator battles and public spectacles were held within my walls",
+      "I am an elliptical amphitheatre in the center of Rome"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 38,
+    "answer": "Taj Mahal",
+    "acceptableAnswers": ["taj mahal"],
+    "hints": [
+      "I am made of white marble that changes color with the light",
+      "I was built as a mausoleum for a beloved wife",
+      "I am a 17th-century Mughal monument in Agra, India"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 39,
+    "answer": "Eiffel Tower",
+    "acceptableAnswers": ["eiffel tower", "la tour eiffel"],
+    "hints": [
+      "I was initially criticized as an eyesore by many Parisians",
+      "I was the tallest structure in the world until 1930",
+      "I was built by Gustave Eiffel for the 1889 Worlds Fair"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 40,
+    "answer": "Pyramids of Giza",
+    "acceptableAnswers": ["pyramids of giza", "great pyramid of giza", "giza pyramids", "pyramids"],
+    "hints": [
+      "I am the only surviving wonder of the ancient world",
+      "I was built as a tomb for Pharaoh Khufu",
+      "I stand on the Giza plateau near Cairo, Egypt"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 41,
+    "answer": "Statue of Liberty",
+    "acceptableAnswers": ["statue of liberty", "lady liberty"],
+    "hints": [
+      "I was a gift from France to the United States",
+      "I hold a torch in my right hand and a tablet in my left",
+      "I stand on Liberty Island in New York Harbor"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 42,
+    "answer": "Stonehenge",
+    "acceptableAnswers": ["stonehenge"],
+    "hints": [
+      "I am a prehistoric circular arrangement of standing stones",
+      "My construction began around 3000 BC",
+      "I am located on Salisbury Plain in Wiltshire, England"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 43,
+    "answer": "Christ the Redeemer",
+    "acceptableAnswers": ["christ the redeemer", "cristo redentor", "christ statue rio"],
+    "hints": [
+      "I stand 98 feet tall with my arms stretched 92 feet wide",
+      "I am made of reinforced concrete and covered in soapstone",
+      "I overlook Rio de Janeiro from the peak of Corcovado Mountain"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 44,
+    "answer": "Angkor Wat",
+    "acceptableAnswers": ["angkor wat"],
+    "hints": [
+      "I am the largest religious monument in the world",
+      "I was originally built as a Hindu temple dedicated to Vishnu",
+      "I am a temple complex in Cambodia and appear on the national flag"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 45,
+    "answer": "Petra",
+    "acceptableAnswers": ["petra"],
+    "hints": [
+      "I am an archaeological city carved into pink sandstone cliffs",
+      "I was a major trading hub for the Nabataean Kingdom",
+      "I am located in Jordan and accessed through a narrow gorge called the Siq"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 46,
+    "answer": "Burj Khalifa",
+    "acceptableAnswers": ["burj khalifa"],
+    "hints": [
+      "I have over 160 floors and the highest observation deck in the world",
+      "My construction used 330,000 cubic meters of concrete",
+      "I am the tallest building in the world, located in Dubai"
+    ],
+    "category": "Landmark"
+  },
+  {
+    "id": 47,
+    "answer": "Japan",
+    "acceptableAnswers": ["japan", "nippon", "nihon"],
+    "hints": [
+      "I am an archipelago of over 6,800 islands",
+      "Mount Fuji is my highest peak and a cultural symbol",
+      "Tokyo is my capital and I am known for sushi, anime, and samurai"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 48,
+    "answer": "Brazil",
+    "acceptableAnswers": ["brazil", "brasil"],
+    "hints": [
+      "I am the largest country in both South America and Latin America",
+      "The Amazon River and rainforest cover much of my territory",
+      "My official language is Portuguese and my capital is Brasilia"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 49,
+    "answer": "India",
+    "acceptableAnswers": ["india", "bharat"],
+    "hints": [
+      "I am the second most populous country in the world",
+      "The Taj Mahal is located within my borders",
+      "My capital is New Delhi and I gained independence in 1947"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 50,
+    "answer": "Australia",
+    "acceptableAnswers": ["australia", "oz", "down under"],
+    "hints": [
+      "I am both a country and a continent",
+      "Kangaroos and koalas are native to my land",
+      "My capital is Canberra and my largest city is Sydney"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 51,
+    "answer": "Canada",
+    "acceptableAnswers": ["canada"],
+    "hints": [
+      "I have the longest coastline in the world",
+      "My national sport is ice hockey",
+      "I am the second largest country by land area with capital Ottawa"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 52,
+    "answer": "Egypt",
+    "acceptableAnswers": ["egypt", "misr"],
+    "hints": [
+      "The Nile River is the longest river flowing through my land",
+      "My ancient civilization built pyramids that still stand today",
+      "My capital is Cairo and I am located in northeastern Africa"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 53,
+    "answer": "Italy",
+    "acceptableAnswers": ["italy", "italia"],
+    "hints": [
+      "I am shaped like a boot sticking into the Mediterranean Sea",
+      "The ancient Roman Empire was centered here",
+      "My capital is Rome and I am known for pizza, pasta, and Renaissance art"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 54,
+    "answer": "Mexico",
+    "acceptableAnswers": ["mexico", "los estados unidos mexicanos"],
+    "hints": [
+      "The ancient Mayan and Aztec civilizations flourished here",
+      "Day of the Dead is one of my most famous cultural celebrations",
+      "My capital is Mexico City and I am south of the United States"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 55,
+    "answer": "South Africa",
+    "acceptableAnswers": ["south africa", "south african republic", "rsa"],
+    "hints": [
+      "I have three capital cities for different branches of government",
+      "Nelson Mandela was my first democratically elected president",
+      "I am located at the southern tip of Africa and am known as the Rainbow Nation"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 56,
+    "answer": "France",
+    "acceptableAnswers": ["france", "french republic"],
+    "hints": [
+      "My national motto is Liberte, Egalite, Fraternite",
+      "The Eiffel Tower and the Louvre Museum are in my capital",
+      "My capital is Paris and I am known for wine, cheese, and fashion"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 57,
+    "answer": "New Zealand",
+    "acceptableAnswers": ["new zealand", "aotearoa", "nz"],
+    "hints": [
+      "I am made up of two main islands called North and South",
+      "The Lord of the Rings movies were filmed here",
+      "My capital is Wellington and I am located southeast of Australia"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 58,
+    "answer": "Argentina",
+    "acceptableAnswers": ["argentina", "the argentine republic"],
+    "hints": [
+      "Tango dance and music originated in my capital city",
+      "I am the eighth largest country in the world by area",
+      "My capital is Buenos Aires and I am located in southern South America"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 59,
+    "answer": "Greece",
+    "acceptableAnswers": ["greece", "hellas", "hellenic republic"],
+    "hints": [
+      "I have more than 2,000 islands, but only about 170 are inhabited",
+      "Democracy was born in my ancient city-state of Athens",
+      "My capital is Athens and I am the birthplace of the Olympic Games"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 60,
+    "answer": "Norway",
+    "acceptableAnswers": ["norway", "norge", "kingdom of norway"],
+    "hints": [
+      "My coastline is famous for dramatic fjords carved by glaciers",
+      "The sun does not set for months during my Arctic summer",
+      "My capital is Oslo and I am known for the Northern Lights and Vikings"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 61,
+    "answer": "Switzerland",
+    "acceptableAnswers": ["switzerland", "swiss confederation", "helvetia"],
+    "hints": [
+      "I am famous for my neutrality in international conflicts",
+      "I am home to the headquarters of the Red Cross and many UN agencies",
+      "My capital is Bern and I am known for chocolate, watches, and the Alps"
+    ],
+    "category": "Country"
+  },
+  {
+    "id": 62,
+    "answer": "The Shawshank Redemption",
+    "acceptableAnswers": ["the shawshank redemption", "shawshank redemption"],
+    "hints": [
+      "The story is set in a Maine state penitentiary",
+      "My main character is Andy Dufresne, a banker wrongly convicted of murder",
+      "My famous line is Get busy living or get busy dying"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 63,
+    "answer": "The Godfather",
+    "acceptableAnswers": ["the godfather", "godfather"],
+    "hints": [
+      "The story follows the powerful Corleone crime family",
+      "Marlon Brando played the patriarch with cotton balls in his cheeks",
+      "I am a 1972 film about the Mafia directed by Francis Ford Coppola"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 64,
+    "answer": "Inception",
+    "acceptableAnswers": ["inception"],
+    "hints": [
+      "My plot involves entering peoples dreams to steal ideas",
+      "A spinning top is used as a totem to distinguish dreams from reality",
+      "I am a 2010 science fiction film directed by Christopher Nolan"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 65,
+    "answer": "Titanic",
+    "acceptableAnswers": ["titanic"],
+    "hints": [
+      "My story is set aboard a famous ocean liner on its maiden voyage",
+      "Jack and Rose are the star-crossed lovers at the center of my plot",
+      "I am a 1997 James Cameron film that won 11 Academy Awards"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 66,
+    "answer": "Star Wars",
+    "acceptableAnswers": ["star wars", "star wars episode iv", "a new hope"],
+    "hints": [
+      "My story begins in a galaxy far, far away",
+      "Key characters include Luke Skywalker, Darth Vader, and Princess Leia",
+      "I am a 1977 space opera created by George Lucas"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 67,
+    "answer": "Jurassic Park",
+    "acceptableAnswers": ["jurassic park"],
+    "hints": [
+      "Scientists extract DNA from mosquitoes preserved in amber",
+      "The film asks whether we should just because we can",
+      "I am a 1993 Steven Spielberg film about dinosaurs brought back to life"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 68,
+    "answer": "The Matrix",
+    "acceptableAnswers": ["the matrix", "matrix"],
+    "hints": [
+      "My main character is known by the alias Neo",
+      "The red pill or the blue pill is a central choice in my plot",
+      "I am a 1999 sci-fi film where reality is a simulated world created by machines"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 69,
+    "answer": "Forrest Gump",
+    "acceptableAnswers": ["forrest gump"],
+    "hints": [
+      "My title character says Life is like a box of chocolates",
+      "I feature a feather floating through the air as a recurring motif",
+      "I am a 1994 film starring Tom Hanks as a simple man who influences major historical events"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 70,
+    "answer": "Pulp Fiction",
+    "acceptableAnswers": ["pulp fiction"],
+    "hints": [
+      "My nonlinear storyline weaves together several criminal stories in Los Angeles",
+      "John Travolta and Uma Thurman dance the twist at a 1950s-themed restaurant",
+      "I am a 1994 film directed by Quentin Tarantino known for my sharp dialogue"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 71,
+    "answer": "The Lord of the Rings",
+    "acceptableAnswers": ["the lord of the rings", "lord of the rings", "lotr"],
+    "hints": [
+      "A small golden ring is at the center of my epic story",
+      "My characters include a wizard named Gandalf and a hobbit named Frodo",
+      "I am a film trilogy directed by Peter Jackson based on J.R.R. Tolkiens novels"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 72,
+    "answer": "Back to the Future",
+    "acceptableAnswers": ["back to the future", "back to future"],
+    "hints": [
+      "A DeLorean sports car is modified to travel through time",
+      "Marty McFly must ensure his parents fall in love in the 1950s",
+      "I am a 1985 sci-fi comedy directed by Robert Zemeckis starring Michael J. Fox"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 73,
+    "answer": "The Lion King",
+    "acceptableAnswers": ["the lion king", "lion king"],
+    "hints": [
+      "My story is heavily inspired by Shakespeare's Hamlet",
+      "One of my most famous songs is Hakuna Matata",
+      "I am a 1994 Disney animated film set in the African savanna about a lion cub named Simba"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 74,
+    "answer": "Harry Potter and the Philosopher's Stone",
+    "acceptableAnswers": ["harry potter and the philosophers stone", "harry potter and the sorcerers stone", "harry potter 1"],
+    "hints": [
+      "My hero discovers he is a wizard on his eleventh birthday",
+      "A giant named Hagrid delivers an acceptance letter to a magical school",
+      "I am the first film in a series about a boy with a lightning-shaped scar"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 75,
+    "answer": "Avatar",
+    "acceptableAnswers": ["avatar"],
+    "hints": [
+      "My story takes place on a lush moon called Pandora",
+      "The Naavi are tall blue-skinned humanoids who live in harmony with nature",
+      "I am a 2009 James Cameron film that became the highest-grossing movie of all time"
+    ],
+    "category": "Movie"
+  },
+  {
+    "id": 76,
+    "answer": "Elephant",
+    "acceptableAnswers": ["elephant", "african elephant", "asian elephant"],
+    "hints": [
+      "I am the largest land animal on Earth",
+      "My trunk is a fusion of my nose and upper lip with over 40,000 muscles",
+      "I am known for my long tusks, large ears, and excellent memory"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 77,
+    "answer": "Blue Whale",
+    "acceptableAnswers": ["blue whale", "blue whale"],
+    "hints": [
+      "I am the largest animal to have ever existed on Earth",
+      "My heart is the size of a small car",
+      "I am a marine mammal that can grow up to 100 feet long"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 78,
+    "answer": "Cheetah",
+    "acceptableAnswers": ["cheetah"],
+    "hints": [
+      "I am a big cat with distinctive black tear marks on my face",
+      "I can accelerate faster than most sports cars",
+      "I am the fastest land animal, reaching speeds over 70 miles per hour"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 79,
+    "answer": "Octopus",
+    "acceptableAnswers": ["octopus", "octopi"],
+    "hints": [
+      "I have three hearts and blue blood",
+      "I can change my color and texture to blend into my surroundings",
+      "I am a highly intelligent sea creature with eight arms covered in suckers"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 80,
+    "answer": "Kangaroo",
+    "acceptableAnswers": ["kangaroo", "roo"],
+    "hints": [
+      "I carry my baby in a pouch on my belly",
+      "I cannot walk backwards",
+      "I am a marsupial from Australia known for hopping on my powerful hind legs"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 81,
+    "answer": "Penguin",
+    "acceptableAnswers": ["penguin", "emperor penguin"],
+    "hints": [
+      "I am a bird that cannot fly",
+      "I use my wings as flippers to swim through the water",
+      "I live in the Southern Hemisphere and the largest species is the emperor penguin"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 82,
+    "answer": "Chameleon",
+    "acceptableAnswers": ["chameleon"],
+    "hints": [
+      "I have eyes that can move independently in different directions",
+      "My tongue can be as long as my body",
+      "I am a lizard famous for changing my skin color"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 83,
+    "answer": "Honeybee",
+    "acceptableAnswers": ["honeybee", "honey bee", "bee", "apis mellifera"],
+    "hints": [
+      "I communicate with my hive mates through a special dance",
+      "I produce a sweet golden substance that humans have harvested for thousands of years",
+      "I am a flying insect that lives in colonies and is essential for pollinating crops"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 84,
+    "answer": "Great White Shark",
+    "acceptableAnswers": ["great white shark", "great white", "white shark"],
+    "hints": [
+      "I can detect a single drop of blood in 25 gallons of water",
+      "I have been around for millions of years, predating dinosaurs",
+      "I am the largest known predatory fish and was the star of the film Jaws"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 85,
+    "answer": "Peacock",
+    "acceptableAnswers": ["peacock", "peafowl", "indian peacock"],
+    "hints": [
+      "Only the male of my species has the trait I am most famous for",
+      "My elaborate display features over 200 iridescent feathers",
+      "I am a colorful bird known for my magnificent tail feathers that I fan out to attract mates"
+    ],
+    "category": "Animal"
+  },
+  {
+    "id": 86,
+    "answer": "Telephone",
+    "acceptableAnswers": ["telephone", "phone", "landline"],
+    "hints": [
+      "Alexander Graham Bell is credited with inventing me",
+      "The first words ever spoken on me were Mr. Watson, come here",
+      "I am a device that transmits sound over long distances using electrical signals"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 87,
+    "answer": "Light Bulb",
+    "acceptableAnswers": ["light bulb", "incandescent light bulb", "electric light bulb"],
+    "hints": [
+      "Thomas Edison is most often credited with my invention",
+      "My filament is usually made of tungsten",
+      "I convert electricity into light and revolutionized how we illuminate our homes"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 88,
+    "answer": "Printing Press",
+    "acceptableAnswers": ["printing press", "movable type printing press"],
+    "hints": [
+      "I was invented by Johannes Gutenberg around 1440",
+      "The first major book printed using me was the Bible",
+      "I revolutionized the spread of knowledge by making books affordable and mass-producible"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 89,
+    "answer": "Penicillin",
+    "acceptableAnswers": ["penicillin", "penicillin antibiotic"],
+    "hints": [
+      "I was discovered by accident when a petri dish was left dirty",
+      "Alexander Fleming is credited with finding me in 1928",
+      "I am an antibiotic that kills bacteria and has saved millions of lives"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 90,
+    "answer": "Wheel",
+    "acceptableAnswers": ["wheel"],
+    "hints": [
+      "I was first used in Mesopotamia around 3500 BC",
+      "My earliest known use was for pottery, not transportation",
+      "I am a simple circular device that reduced friction and revolutionized movement and transport"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 91,
+    "answer": "Internet",
+    "acceptableAnswers": ["internet", "world wide web", "web"],
+    "hints": [
+      "I began as a US military project called ARPANET",
+      "Tim Berners-Lee invented the World Wide Web as a way to navigate me",
+      "I am a global network connecting millions of computers, enabling instant communication worldwide"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 92,
+    "answer": "Airplane",
+    "acceptableAnswers": ["airplane", "aeroplane", "aircraft", "fixed-wing aircraft"],
+    "hints": [
+      "The Wright brothers are credited with my first successful flight",
+      "My first powered flight lasted just 12 seconds at Kitty Hawk",
+      "I am a powered flying vehicle with fixed wings that changed global travel forever"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 93,
+    "answer": "Compass",
+    "acceptableAnswers": ["compass", "magnetic compass"],
+    "hints": [
+      "I was first invented in China during the Han dynasty",
+      "My needle always points toward magnetic north",
+      "I am a navigation instrument that uses Earths magnetic field to show direction"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 94,
+    "answer": "X-Ray",
+    "acceptableAnswers": ["x-ray", "x ray", "xray", "x-radiation", "roentgen rays"],
+    "hints": [
+      "I was discovered by Wilhelm Roentgen in 1895",
+      "The first image ever made using me showed the bones of a human hand",
+      "I am a form of electromagnetic radiation that lets doctors see inside the human body without surgery"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 95,
+    "answer": "Vaccination",
+    "acceptableAnswers": ["vaccination", "vaccine", "smallpox vaccine"],
+    "hints": [
+      "Edward Jenner is known as the father of my development",
+      "I was first developed using cowpox to prevent smallpox",
+      "I am a medical treatment that stimulates the immune system to protect against infectious diseases"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 96,
+    "answer": "1984",
+    "acceptableAnswers": ["1984", "nineteen eighty-four"],
+    "hints": [
+      "My author was inspired by totalitarian regimes of the 20th century",
+      "My famous phrases include Big Brother is watching you and thoughtcrime",
+      "I am a dystopian novel by George Orwell set in a world of perpetual war and surveillance"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 97,
+    "answer": "To Kill a Mockingbird",
+    "acceptableAnswers": ["to kill a mockingbird", "mockingbird"],
+    "hints": [
+      "My narrator is a young girl named Scout Finch",
+      "My story deals with racial injustice in the American South during the 1930s",
+      "I was written by Harper Lee and feature the iconic lawyer Atticus Finch"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 98,
+    "answer": "Pride and Prejudice",
+    "acceptableAnswers": ["pride and prejudice"],
+    "hints": [
+      "My famous opening line begins It is a truth universally acknowledged",
+      "My heroine Elizabeth Bennet is one of literatures most beloved characters",
+      "I was written by Jane Austen and explore love and class in 19th-century England"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 99,
+    "answer": "The Great Gatsby",
+    "acceptableAnswers": ["the great gatsby", "great gatsby", "gatsby"],
+    "hints": [
+      "My narrator is Nick Carraway who moves to West Egg, Long Island",
+      "My title character throws extravagant parties hoping to reunite with Daisy Buchanan",
+      "I was written by F. Scott Fitzgerald and capture the Jazz Age in 1920s America"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 100,
+    "answer": "Harry Potter and the Philosopher's Stone",
+    "acceptableAnswers": ["harry potter and the philosophers stone", "harry potter and the sorcerers stone", "harry potter book 1"],
+    "hints": [
+      "My hero discovers he is a wizard on his eleventh birthday",
+      "A giant named Hagrid tells him Youre a wizard, Harry",
+      "I am the first book in a seven-part series by J.K. Rowling about a young wizard"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 101,
+    "answer": "The Hobbit",
+    "acceptableAnswers": ["the hobbit", "hobbit", "there and back again"],
+    "hints": [
+      "My title character is a small, furry-footed creature who loves comfort",
+      "A wizard named Gandalf recruits me for an adventure with thirteen dwarves",
+      "I was written by J.R.R. Tolkien and begin with the line In a hole in the ground there lived a hobbit"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 102,
+    "answer": "Moby-Dick",
+    "acceptableAnswers": ["moby dick", "moby-dick", "the whale"],
+    "hints": [
+      "My narrator Ishmael opens with Call me Ishmael",
+      "Captain Ahab obsessively pursues a white creature across the seas",
+      "I was written by Herman Melville and is the story of a vengeful hunt for a great white whale"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 103,
+    "answer": "The Catcher in the Rye",
+    "acceptableAnswers": ["the catcher in the rye", "catcher in the rye"],
+    "hints": [
+      "My protagonist Holden Caulfield is a disillusioned teenager",
+      "My narrator criticizes everyone as phony and wears a red hunting hat",
+      "I was written by J.D. Salinger and follows a boys journey through New York City"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 104,
+    "answer": "The Lord of the Rings",
+    "acceptableAnswers": ["the lord of the rings", "lord of the rings", "lotr"],
+    "hints": [
+      "My story begins in the peaceful Shire with a humble hobbit",
+      "A powerful dark lord named Sauron seeks a lost golden ring of power",
+      "I was written by J.R.R. Tolkien as an epic fantasy trilogy set in Middle-earth"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 105,
+    "answer": "One Hundred Years of Solitude",
+    "acceptableAnswers": ["one hundred years of solitude", "cien anos de soledad", "100 years of solitude"],
+    "hints": [
+      "My story follows seven generations of the Buendia family",
+      "I am a landmark work of magical realism set in the fictional town of Macondo",
+      "I was written by Gabriel Garcia Marquez and won the Nobel Prize in Literature"
+    ],
+    "category": "Book"
+  },
+  {
+    "id": 106,
+    "answer": "Buenos Aires",
+    "acceptableAnswers": ["buenos aires", "baires"],
+    "hints": [
+      "I am known as the Paris of South America",
+      "Tango music and dance were born in my streets and cafes",
+      "I am the capital and largest city of Argentina"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 107,
+    "answer": "San Francisco",
+    "acceptableAnswers": ["san francisco", "sf", "frisco"],
+    "hints": [
+      "My famous bridge is painted international orange",
+      "I experienced a major gold rush in 1849",
+      "I am a California city known for my Golden Gate Bridge and cable cars"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 108,
+    "answer": "Berlin",
+    "acceptableAnswers": ["berlin"],
+    "hints": [
+      "A famous wall divided me from 1961 to 1989",
+      "The Reichstag building is the seat of my parliament",
+      "I am the capital and largest city of Germany"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 109,
+    "answer": "Copenhagen",
+    "acceptableAnswers": ["copenhagen", "kobenhavn"],
+    "hints": [
+      "A statue of a mermaid sits on a rock at my harbor",
+      "Tivoli Gardens is one of the oldest amusement parks in the world located here",
+      "I am the capital of Denmark"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 110,
+    "answer": "Seoul",
+    "acceptableAnswers": ["seoul", "soul"],
+    "hints": [
+      "I am one of the most wired cities in the world with ultra-fast internet",
+      "Gangnam Style put one of my districts on the global map",
+      "I am the capital and largest city of South Korea"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 111,
+    "answer": "Marrakesh",
+    "acceptableAnswers": ["marrakesh", "marrakech"],
+    "hints": [
+      "I am known as the Red City because of the color of my walls",
+      "Jemaa el-Fnaa is my famous bustling central square with snake charmers and storytellers",
+      "I am a major city in Morocco located at the foot of the Atlas Mountains"
+    ],
+    "category": "City"
+  },
+  {
+    "id": 112,
+    "answer": "Fire",
+    "acceptableAnswers": ["fire", "control of fire", "fire making"],
+    "hints": [
+      "My discovery is considered one of the most important in human history",
+      "Early humans learned to create me by striking flint stones together",
+      "I provided warmth, protection, cooked food, and light to early civilizations"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 113,
+    "answer": "The Microscope",
+    "acceptableAnswers": ["microscope", "compound microscope"],
+    "hints": [
+      "Antonie van Leeuwenhoek is known as the father of microbiology because of me",
+      "I enabled the discovery of bacteria, cells, and other microscopic life",
+      "I am an instrument that uses lenses to magnify objects too small to see with the naked eye"
+    ],
+    "category": "Invention"
+  },
+  {
+    "id": 114,
+    "answer": "Schindler's List",
+    "acceptableAnswers": ["schindlers list", "schindler's list"],
+    "hints": [
+      "My film is shot almost entirely in black and white",
+      "A little girl in a red coat is one of my most memorable images",
+      "I am a 1993 Steven Spielberg film about a German businessman who saved over 1,000 Jewish lives during the Holocaust"
+    ],
+    "category": "Movie"
+  }
+]
