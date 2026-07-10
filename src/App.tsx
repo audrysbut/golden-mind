@@ -157,6 +157,22 @@ export default function App() {
         ? `You guessed correctly! (+${points} pts)`
         : correct ? `You guessed: ${text} (already correct!)` : `You guessed: ${text}`
 
+      if (correct && !alreadyCorrect) {
+        clearInterval(soloTimerRef.current!)
+        return {
+          ...prev,
+          timeRemaining: 0,
+          phase: 'roundEnd' as const,
+          players: [{ ...player, points: player.points + points, guessedCorrectly: true }],
+          messages: [
+            ...prev.messages,
+            { id: uuidv4(), type: msgType, text: msgText, timestamp: Date.now() },
+            { id: uuidv4(), type: 'system' as const, text: `The answer was: ${question.answer}`, timestamp: Date.now() },
+          ],
+          currentAnswers: [...prev.currentAnswers, { playerId: player.id, playerName: player.name, answer: text, correct, pointsEarned: points }],
+        }
+      }
+
       return {
         ...prev,
         players: [{ ...player, points: player.points + points, guessedCorrectly: player.guessedCorrectly || correct }],
