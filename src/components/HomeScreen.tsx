@@ -12,8 +12,7 @@ interface HomeScreenProps {
 
 export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, error, initialRoomId }: HomeScreenProps) {
   const [name, setName] = useState(() => localStorage.getItem(STORAGE_KEY) || '')
-  const [roomId, setRoomId] = useState(initialRoomId ?? '')
-  const [mode, setMode] = useState<'menu' | 'solo' | 'multi'>(initialRoomId ? 'multi' : 'menu')
+  const [mode, setMode] = useState<'menu' | 'solo' | 'join'>(initialRoomId ? 'join' : 'menu')
 
   useEffect(() => {
     if (name) localStorage.setItem(STORAGE_KEY, name)
@@ -30,13 +29,38 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
   }
 
   const handleJoin = () => {
-    if (!name.trim() || !roomId.trim()) return
-    onJoinRoom(name.trim(), roomId.trim())
+    if (!name.trim() || !initialRoomId) return
+    onJoinRoom(name.trim(), initialRoomId)
   }
 
   const handleSolo = () => {
     if (!name.trim()) return
     onStartSolo(name.trim())
+  }
+
+  if (mode === 'join') {
+    return (
+      <div className="screen home-screen">
+        <h1 className="game-title">Golden Mind</h1>
+        <p className="subtitle">Join Game</p>
+        <div className="card">
+          <label htmlFor="join-name">Your Name</label>
+          <input
+            id="join-name"
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Enter your name"
+            maxLength={20}
+            autoFocus
+          />
+          <button className="btn btn-accent" onClick={handleJoin} disabled={!name.trim()} style={{ marginTop: '0.5rem', width: '100%' }}>
+            Join
+          </button>
+          {error && <p className="error">{error}</p>}
+        </div>
+      </div>
+    )
   }
 
   if (mode === 'solo') {
@@ -64,50 +88,6 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
     )
   }
 
-  if (mode === 'multi') {
-    return (
-      <div className="screen home-screen">
-        <h1 className="game-title">Golden Mind</h1>
-        <p className="subtitle">Multiplayer</p>
-        <div className="card">
-          <label htmlFor="multi-name">Your Name</label>
-          <input
-            id="multi-name"
-            type="text"
-            value={name}
-            onChange={handleNameChange}
-            placeholder="Enter your name"
-            maxLength={20}
-            autoFocus
-          />
-          {!initialRoomId && (
-            <button className="btn btn-primary" onClick={handleCreate} disabled={!name.trim()}>
-              Create Game
-            </button>
-          )}
-          {!initialRoomId && <div className="divider"><span>or</span></div>}
-          <label htmlFor="room-id">Room ID</label>
-          <div className="join-row">
-            <input
-              id="room-id"
-              type="text"
-              value={roomId}
-              onChange={e => setRoomId(e.target.value)}
-              placeholder="Paste room ID"
-              maxLength={36}
-              readOnly={!!initialRoomId}
-            />
-            <button className="btn btn-accent" onClick={handleJoin} disabled={!name.trim() || !roomId.trim()}>
-              Join
-            </button>
-          </div>
-          {error && <p className="error">{error}</p>}
-          <button className="btn btn-secondary" onClick={() => setMode('menu')}>Back</button>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="screen home-screen">
       <h1 className="game-title">Golden Mind</h1>
@@ -123,8 +103,8 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
           maxLength={20}
           autoFocus
         />
-        <button className="btn btn-primary" onClick={() => setMode('multi')} disabled={!name.trim()}>
-          Play Multiplayer
+        <button className="btn btn-primary" onClick={handleCreate} disabled={!name.trim()}>
+          Create Game
         </button>
         <button className="btn btn-secondary" onClick={() => setMode('solo')} disabled={!name.trim()}>
           Solo Practice
