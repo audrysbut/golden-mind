@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import type { GameState, Player, Question, Message, ChatMessage } from '../types'
-import { getQuestions, checkAnswer, isCloseAnswer } from '../utils/questions'
+import { getQuestions, checkAnswer, isCloseAnswer, countMatchingWords } from '../utils/questions'
 
 const ROUND_DURATION = 120
 const TOTAL_ROUNDS = 5
@@ -224,8 +224,15 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       sendToAll({ type: 'guess-result', playerId: actualPlayerId, playerName: actualPlayerName, text, correct, pointsEarned: points })
     } else {
       const close = !alreadyCorrect && isCloseAnswer(question, text)
-      const msgType = alreadyCorrect ? 'player' as const : close ? 'close' as const : 'wrong' as const
-      const answer: ChatMessage = addMessage(msgType, close ? `${actualPlayerName} is very close!` : `${actualPlayerName} guessed: ${text}`, actualPlayerId, actualPlayerName)
+      const wordMatch = !alreadyCorrect ? countMatchingWords(question, text) : { matched: 0, total: 0 }
+      const partial = wordMatch.matched > 0
+      const msgType = alreadyCorrect ? 'player' as const : close ? 'close' as const : partial ? 'partially-correct' as const : 'wrong' as const
+      const msgText = alreadyCorrect
+        ? `${actualPlayerName} guessed: ${text}`
+        : close ? `${actualPlayerName} is very close!`
+        : partial ? `${actualPlayerName}: ${wordMatch.matched} of ${wordMatch.total} words are correct`
+        : `${actualPlayerName} guessed: ${text}`
+      const answer: ChatMessage = addMessage(msgType, msgText, actualPlayerId, actualPlayerName)
       const newState: GameState = {
         ...state,
         currentAnswers: [...state.currentAnswers, { playerId: actualPlayerId, playerName: actualPlayerName, answer: text, correct, pointsEarned: 0 }],

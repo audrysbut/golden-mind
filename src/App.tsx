@@ -5,7 +5,7 @@ import HomeScreen from './components/HomeScreen'
 import Lobby from './components/Lobby'
 import GameScreen from './components/GameScreen'
 import type { Message, GameState, ChatMessage } from './types'
-import { getQuestions, checkAnswer, isCloseAnswer } from './utils/questions'
+import { getQuestions, checkAnswer, isCloseAnswer, countMatchingWords } from './utils/questions'
 import { v4 as uuidv4 } from 'uuid'
 
 const TOTAL_ROUNDS = 5
@@ -155,11 +155,14 @@ export default function App() {
         : 0
 
       const close = !correct && !alreadyCorrect && isCloseAnswer(question, text)
-      const msgType: ChatMessage['type'] = correct && !alreadyCorrect ? 'correct' : alreadyCorrect ? 'player' : close ? 'close' : 'wrong'
+      const wordMatch = !correct && !alreadyCorrect ? countMatchingWords(question, text) : { matched: 0, total: 0 }
+      const partial = wordMatch.matched > 0
+      const msgType: ChatMessage['type'] = correct && !alreadyCorrect ? 'correct' : alreadyCorrect ? 'player' : close ? 'close' : partial ? 'partially-correct' : 'wrong'
       const msgText = correct && !alreadyCorrect
         ? `You guessed correctly! (+${points} pts)`
         : correct ? `You guessed: ${text} (already correct!)`
         : close ? `You are very close!`
+        : partial ? `${wordMatch.matched} of ${wordMatch.total} words are correct`
         : `You guessed: ${text}`
 
       if (correct && !alreadyCorrect) {

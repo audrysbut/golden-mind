@@ -30,6 +30,14 @@ function levenshtein(a: string, b: string): number {
   return dp[m][n]
 }
 
+export function countMatchingWords(question: Question, guess: string): { matched: number; total: number } {
+  const answerWords = question.answer.toLowerCase().split(/\s+/)
+  if (answerWords.length <= 1) return { matched: 0, total: 0 }
+  const guessWords = new Set(guess.toLowerCase().split(/\s+/))
+  const matched = answerWords.filter(w => guessWords.has(w)).length
+  return { matched, total: answerWords.length }
+}
+
 export function isCloseAnswer(question: Question, guess: string): boolean {
   const normalized = guess.toLowerCase().trim()
   return question.acceptableAnswers.some(a => {
