@@ -182,18 +182,23 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     const actualPlayerId = senderPlayerId ?? playerId
     const actualPlayerName = senderPlayerName ?? playerName
     const player = state.players.find(p => p.id === actualPlayerId)
-    if (!player || player.guessedCorrectly) return
+    if (!player) return
 
+    const alreadyCorrect = player.guessedCorrectly
     const correct = checkAnswer(question, text)
-    const points = correct ? pointsForHints(state.hintsRevealed) : 0
+    const points = correct && !alreadyCorrect ? pointsForHints(state.hintsRevealed) : 0
 
     if (correct) {
       const updatedPlayers = state.players.map(p =>
         p.id === actualPlayerId
-          ? { ...p, points: p.points + points, guessedCorrectly: true, roundsWon: p.roundsWon + 1 }
+          ? { ...p, points: p.points + points, guessedCorrectly: true, roundsWon: p.roundsWon + (points > 0 ? 1 : 0) }
           : p
       )
-      const answer: ChatMessage = addMessage('correct', `${actualPlayerName} guessed correctly! (+${points} pts)`, actualPlayerId, actualPlayerName)
+      const msgText = alreadyCorrect
+        ? `${actualPlayerName} guessed: ${text} (already correct!)`
+        : `${actualPlayerName} guessed correctly! (+${points} pts)`
+      const msgType = alreadyCorrect ? 'player' as const : 'correct' as const
+      const answer: ChatMessage = addMessage(msgType, msgText, actualPlayerId, actualPlayerName)
       const newState: GameState = {
         ...state,
         players: updatedPlayers,
@@ -201,10 +206,12 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
         messages: [...state.messages, answer],
       }
 
-      const allCorrect = updatedPlayers.every(p => p.guessedCorrectly)
-      if (allCorrect) {
-        endRound(newState)
-        return
+      if (!alreadyCorrect) {
+        const allCorrect = updatedPlayers.every(p => p.guessedCorrectly)
+        if (allCorrect) {
+          endRound(newState)
+          return
+        }
       }
 
       hostStateRef.current = newState
@@ -212,7 +219,8 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       broadcastState(newState)
       sendToAll({ type: 'guess-result', playerId: actualPlayerId, playerName: actualPlayerName, text, correct, pointsEarned: points })
     } else {
-      const answer: ChatMessage = addMessage('wrong', `${actualPlayerName} guessed: ${text}`, actualPlayerId, actualPlayerName)
+      const msgType = alreadyCorrect ? 'player' as const : 'wrong' as const
+      const answer: ChatMessage = addMessage(msgType, `${actualPlayerName} guessed: ${text}`, actualPlayerId, actualPlayerName)
       const newState: GameState = {
         ...state,
         currentAnswers: [...state.currentAnswers, { playerId: actualPlayerId, playerName: actualPlayerName, answer: text, correct, pointsEarned: 0 }],

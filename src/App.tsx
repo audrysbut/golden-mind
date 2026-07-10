@@ -4,7 +4,7 @@ import useGameState from './hooks/useGameState'
 import HomeScreen from './components/HomeScreen'
 import Lobby from './components/Lobby'
 import GameScreen from './components/GameScreen'
-import type { Message, GameState } from './types'
+import type { Message, GameState, ChatMessage } from './types'
 import { getQuestions, checkAnswer } from './utils/questions'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -152,7 +152,7 @@ export default function App() {
         ? (prev.hintsRevealed === 0 ? 5 : prev.hintsRevealed === 1 ? 3 : prev.hintsRevealed === 2 ? 2 : 0)
         : 0
 
-      const msgType = correct ? 'correct' as const : 'wrong' as const
+      const msgType: ChatMessage['type'] = correct && !alreadyCorrect ? 'correct' : alreadyCorrect ? 'player' : 'wrong'
       const msgText = correct && !alreadyCorrect
         ? `You guessed correctly! (+${points} pts)`
         : correct ? `You guessed: ${text} (already correct!)` : `You guessed: ${text}`
