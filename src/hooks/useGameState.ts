@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import type { GameState, Player, Question, Message, ChatMessage } from '../types'
-import { getQuestions, checkAnswer } from '../utils/questions'
+import { getQuestions, checkAnswer, isCloseAnswer } from '../utils/questions'
 
 const ROUND_DURATION = 120
 const TOTAL_ROUNDS = 5
@@ -219,8 +219,9 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       broadcastState(newState)
       sendToAll({ type: 'guess-result', playerId: actualPlayerId, playerName: actualPlayerName, text, correct, pointsEarned: points })
     } else {
-      const msgType = alreadyCorrect ? 'player' as const : 'wrong' as const
-      const answer: ChatMessage = addMessage(msgType, `${actualPlayerName} guessed: ${text}`, actualPlayerId, actualPlayerName)
+      const close = !alreadyCorrect && isCloseAnswer(question, text)
+      const msgType = alreadyCorrect ? 'player' as const : close ? 'close' as const : 'wrong' as const
+      const answer: ChatMessage = addMessage(msgType, close ? `${actualPlayerName} is very close!` : `${actualPlayerName} guessed: ${text}`, actualPlayerId, actualPlayerName)
       const newState: GameState = {
         ...state,
         currentAnswers: [...state.currentAnswers, { playerId: actualPlayerId, playerName: actualPlayerName, answer: text, correct, pointsEarned: 0 }],

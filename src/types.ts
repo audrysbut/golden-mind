@@ -32,7 +32,7 @@ export interface GameState {
 
 export interface ChatMessage {
   id: string
-  type: 'system' | 'player' | 'correct' | 'wrong'
+  type: 'system' | 'player' | 'correct' | 'wrong' | 'close'
   playerId?: string
   playerName?: string
   text: string

@@ -5,7 +5,7 @@ import HomeScreen from './components/HomeScreen'
 import Lobby from './components/Lobby'
 import GameScreen from './components/GameScreen'
 import type { Message, GameState, ChatMessage } from './types'
-import { getQuestions, checkAnswer } from './utils/questions'
+import { getQuestions, checkAnswer, isCloseAnswer } from './utils/questions'
 import { v4 as uuidv4 } from 'uuid'
 
 const TOTAL_ROUNDS = 5
@@ -152,10 +152,13 @@ export default function App() {
         ? (prev.hintsRevealed === 0 ? 5 : prev.hintsRevealed === 1 ? 3 : prev.hintsRevealed === 2 ? 2 : 0)
         : 0
 
-      const msgType: ChatMessage['type'] = correct && !alreadyCorrect ? 'correct' : alreadyCorrect ? 'player' : 'wrong'
+      const close = !correct && !alreadyCorrect && isCloseAnswer(question, text)
+      const msgType: ChatMessage['type'] = correct && !alreadyCorrect ? 'correct' : alreadyCorrect ? 'player' : close ? 'close' : 'wrong'
       const msgText = correct && !alreadyCorrect
         ? `You guessed correctly! (+${points} pts)`
-        : correct ? `You guessed: ${text} (already correct!)` : `You guessed: ${text}`
+        : correct ? `You guessed: ${text} (already correct!)`
+        : close ? `You are very close!`
+        : `You guessed: ${text}`
 
       if (correct && !alreadyCorrect) {
         clearInterval(soloTimerRef.current!)
