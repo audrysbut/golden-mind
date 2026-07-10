@@ -23,6 +23,7 @@ interface UseGameStateReturn {
   startGame: () => void
   submitGuess: (text: string) => void
   sendChatMessage: (text: string) => void
+  requestHint: () => void
   resetGame: () => void
 }
 
@@ -38,6 +39,7 @@ function createInitialState(): GameState {
     messages: [],
     timeRemaining: 0,
     currentAnswers: [],
+    hintVotes: [],
   }
 }
 
@@ -104,6 +106,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       hintsRevealed: 0,
       timeRemaining: ROUND_DURATION,
       currentAnswers: [],
+      hintVotes: [],
       players: base.players.map(p => ({ ...p, guessedCorrectly: false })),
       messages: [...base.messages, roundMsg, hint1Msg],
     }
@@ -160,6 +163,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       messages: [],
       timeRemaining: 0,
       currentAnswers: [],
+      hintVotes: [],
     }
     const msg = addMessage('system', 'Game started! Get ready!')
 
@@ -242,6 +246,43 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     }
   }, [isHost, playerId, playerName, sendToHost, submitGuess])
 
+  const revealNextHint = useCallback((state: GameState): GameState | null => {
+    const question = state.currentQuestion
+    if (!question || state.hintsRevealed >= 2) return null
+    const nextHint = state.hintsRevealed + 1
+    const hMsg = addMessage('system', `Hint ${nextHint + 1}: ${question.hints[nextHint]}`)
+    return {
+      ...state,
+      hintsRevealed: nextHint,
+      hintVotes: [],
+      messages: [...state.messages, hMsg],
+    }
+  }, [addMessage])
+
+  const requestHint = useCallback(() => {
+    if (isHost) {
+      const state = hostStateRef.current
+      if (!state || state.phase !== 'playing') return
+      if (state.hintsRevealed >= 2) return
+      if (state.hintVotes.includes(playerId)) return
+      const updated = { ...state, hintVotes: [...state.hintVotes, playerId] }
+      if (updated.hintVotes.length >= updated.players.length) {
+        const revealed = revealNextHint(updated)
+        if (revealed) {
+          hostStateRef.current = revealed
+          setGameState(revealed)
+          broadcastState(revealed)
+          return
+        }
+      }
+      hostStateRef.current = updated
+      setGameState(updated)
+      broadcastState(updated)
+    } else {
+      sendToHost({ type: 'hint-vote', playerId, playerName })
+    }
+  }, [isHost, playerId, playerName, sendToHost, revealNextHint, broadcastState])
+
   const resetGame = useCallback(() => {
     clearTimer()
     questionsRef.current = []
@@ -264,7 +305,26 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     if (message.type === 'guess' && isHost) {
       submitGuess(message.text, message.playerId, message.playerName)
     }
-  }, [isHost, submitGuess])
+    if (message.type === 'hint-vote' && isHost) {
+      const state = hostStateRef.current
+      if (!state || state.phase !== 'playing') return
+      if (state.hintsRevealed >= 2) return
+      if (state.hintVotes.includes(message.playerId)) return
+      const updated = { ...state, hintVotes: [...state.hintVotes, message.playerId] }
+      if (updated.hintVotes.length >= updated.players.length) {
+        const revealed = revealNextHint(updated)
+        if (revealed) {
+          hostStateRef.current = revealed
+          setGameState(revealed)
+          broadcastState(revealed)
+          return
+        }
+      }
+      hostStateRef.current = updated
+      setGameState(updated)
+      broadcastState(updated)
+    }
+  }, [isHost, submitGuess, revealNextHint, broadcastState])
 
   useEffect(() => {
     if (!isHost) return
@@ -292,6 +352,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     startGame,
     submitGuess,
     sendChatMessage,
+    requestHint,
     resetGame,
   }
 }

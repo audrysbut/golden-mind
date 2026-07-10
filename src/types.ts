@@ -28,6 +28,7 @@ export interface GameState {
   messages: ChatMessage[]
   timeRemaining: number
   currentAnswers: PlayerAnswer[]
+  hintVotes: string[]
 }
 
 export interface ChatMessage {
@@ -60,5 +61,6 @@ export type Message =
   | { type: 'round-end'; answer: string; players: Player[] }
   | { type: 'game-over'; players: Player[] }
   | { type: 'timer-sync'; timeRemaining: number }
+  | { type: 'hint-vote'; playerId: string; playerName: string }
   | { type: 'ping' }
   | { type: 'pong' }

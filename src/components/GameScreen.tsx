@@ -5,9 +5,10 @@ interface GameScreenProps {
   gameState: GameState
   playerId: string
   onSendGuess: (text: string) => void
+  onRequestHint: () => void
 }
 
-export default function GameScreen({ gameState, playerId, onSendGuess }: GameScreenProps) {
+export default function GameScreen({ gameState, playerId, onSendGuess, onRequestHint }: GameScreenProps) {
   const [input, setInput] = useState('')
   const chatEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -134,6 +135,32 @@ export default function GameScreen({ gameState, playerId, onSendGuess }: GameScr
                   </div>
                 ))}
               </div>
+              {gameState.hintsRevealed < 2 && gameState.phase === 'playing' && (
+                <div className="hint-vote-area">
+                  <button
+                    className="hint-vote-btn"
+                    onClick={onRequestHint}
+                    disabled={gameState.hintVotes.includes(playerId)}
+                  >
+                    {gameState.hintVotes.includes(playerId) ? 'Vote Sent' : 'Request Hint'}
+                  </button>
+                  {gameState.hintVotes.length > 0 && (
+                    <div className="hint-vote-status">
+                      {gameState.hintVotes.length}/{gameState.players.length} players requested
+                      <div className="hint-vote-players">
+                        {gameState.hintVotes.map(vId => {
+                          const voter = gameState.players.find(p => p.id === vId)
+                          return voter ? (
+                            <span key={vId} className="hint-vote-player">
+                              {voter.name}
+                            </span>
+                          ) : null
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </>
           )}
         </div>

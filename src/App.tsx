@@ -31,6 +31,7 @@ export default function App() {
     handleMessage,
     startGame: hostStartGame,
     sendChatMessage,
+    requestHint,
   } = useGameState({
     isHost,
     playerId: peerId,
@@ -93,6 +94,7 @@ export default function App() {
       ],
       timeRemaining: ROUND_DURATION,
       currentAnswers: [],
+      hintVotes: [],
     }
 
     hostedGameRef.current = { questions, round: 1, state: soloState, timer: 0 }
@@ -238,6 +240,28 @@ export default function App() {
     }
   }, [peerState, sendChatMessage, handleSoloGuess])
 
+  const handleRequestHint = useCallback(() => {
+    if (peerState.isHost || peerState.connections.length > 0) {
+      requestHint()
+    } else {
+      setSoloGameState((prev: GameState | null) => {
+        if (!prev || prev.phase !== 'playing') return prev
+        if (prev.hintsRevealed >= 2) return prev
+        const nextHint = prev.hintsRevealed + 1
+        const q = prev.currentQuestion!
+        return {
+          ...prev,
+          hintsRevealed: nextHint,
+          messages: [...prev.messages, {
+            id: uuidv4(), type: 'system' as const,
+            text: `Hint ${nextHint + 1}: ${q.hints[nextHint]}`,
+            timestamp: Date.now(),
+          }],
+        }
+      })
+    }
+  }, [peerState, requestHint])
+
   useEffect(() => {
     if (gameState.phase !== 'lobby' && screen === 'lobby') {
       setScreen('game')
@@ -276,6 +300,7 @@ export default function App() {
         gameState={displayState}
         playerId={peerState.peerId || soloGameState?.players[0]?.id || ''}
         onSendGuess={handleSendGuess}
+        onRequestHint={handleRequestHint}
       />
     )
   }
