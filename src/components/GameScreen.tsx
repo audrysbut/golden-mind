@@ -11,6 +11,9 @@ export default function GameScreen({ gameState, playerId, onSendGuess }: GameScr
   const [input, setInput] = useState('')
   const chatEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const historyRef = useRef<string[]>([])
+  const historyIndexRef = useRef(-1)
+  const draftRef = useRef('')
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -26,6 +29,37 @@ export default function GameScreen({ gameState, playerId, onSendGuess }: GameScr
     if (!text) return
     onSendGuess(text)
     setInput('')
+    historyRef.current.push(text)
+    historyIndexRef.current = -1
+    draftRef.current = ''
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    const history = historyRef.current
+    if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      if (history.length === 0) return
+      if (historyIndexRef.current === -1) {
+        draftRef.current = input
+        historyIndexRef.current = history.length - 1
+      } else if (historyIndexRef.current > 0) {
+        historyIndexRef.current--
+      }
+      setInput(history[historyIndexRef.current])
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      if (historyIndexRef.current === -1) return
+      if (historyIndexRef.current < history.length - 1) {
+        historyIndexRef.current++
+        setInput(history[historyIndexRef.current])
+      } else {
+        historyIndexRef.current = -1
+        setInput(draftRef.current)
+      }
+    } else if (e.key === 'Escape') {
+      historyIndexRef.current = -1
+      setInput(draftRef.current)
+    }
   }
 
   const formatTime = (seconds: number) => {
@@ -123,6 +157,7 @@ export default function GameScreen({ gameState, playerId, onSendGuess }: GameScr
                 type="text"
                 value={input}
                 onChange={e => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Type your guess..."
                 maxLength={100}
                 disabled={gameState.phase !== 'playing'}
