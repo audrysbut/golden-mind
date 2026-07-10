@@ -263,10 +263,13 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     if (isHost) {
       const state = hostStateRef.current
       if (!state || state.phase !== 'playing') return
-      if (state.hintsRevealed >= 2) return
       if (state.hintVotes.includes(playerId)) return
       const updated = { ...state, hintVotes: [...state.hintVotes, playerId] }
       if (updated.hintVotes.length >= updated.players.length) {
+        if (updated.hintsRevealed >= 2) {
+          endRound(updated)
+          return
+        }
         const revealed = revealNextHint(updated)
         if (revealed) {
           hostStateRef.current = revealed
@@ -281,7 +284,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     } else {
       sendToHost({ type: 'hint-vote', playerId, playerName })
     }
-  }, [isHost, playerId, playerName, sendToHost, revealNextHint, broadcastState])
+  }, [isHost, playerId, playerName, sendToHost, revealNextHint, broadcastState, endRound])
 
   const resetGame = useCallback(() => {
     clearTimer()
@@ -308,10 +311,13 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     if (message.type === 'hint-vote' && isHost) {
       const state = hostStateRef.current
       if (!state || state.phase !== 'playing') return
-      if (state.hintsRevealed >= 2) return
       if (state.hintVotes.includes(message.playerId)) return
       const updated = { ...state, hintVotes: [...state.hintVotes, message.playerId] }
       if (updated.hintVotes.length >= updated.players.length) {
+        if (updated.hintsRevealed >= 2) {
+          endRound(updated)
+          return
+        }
         const revealed = revealNextHint(updated)
         if (revealed) {
           hostStateRef.current = revealed
@@ -324,7 +330,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       setGameState(updated)
       broadcastState(updated)
     }
-  }, [isHost, submitGuess, revealNextHint, broadcastState])
+  }, [isHost, submitGuess, revealNextHint, broadcastState, endRound])
 
   useEffect(() => {
     if (!isHost) return

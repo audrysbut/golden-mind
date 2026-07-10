@@ -246,7 +246,19 @@ export default function App() {
     } else {
       setSoloGameState((prev: GameState | null) => {
         if (!prev || prev.phase !== 'playing') return prev
-        if (prev.hintsRevealed >= 2) return prev
+        if (prev.hintsRevealed >= 2) {
+          clearInterval(soloTimerRef.current!)
+          return {
+            ...prev,
+            timeRemaining: 0,
+            phase: 'roundEnd' as const,
+            messages: [...prev.messages, {
+              id: uuidv4(), type: 'system' as const,
+              text: `The answer was: ${prev.currentQuestion!.answer}`,
+              timestamp: Date.now(),
+            }],
+          }
+        }
         const nextHint = prev.hintsRevealed + 1
         const q = prev.currentQuestion!
         return {

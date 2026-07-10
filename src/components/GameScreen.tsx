@@ -135,14 +135,18 @@ export default function GameScreen({ gameState, playerId, onSendGuess, onRequest
                   </div>
                 ))}
               </div>
-              {gameState.hintsRevealed < 2 && gameState.phase === 'playing' && (
+              {gameState.phase === 'playing' && (
                 <div className="hint-vote-area">
                   <button
-                    className="hint-vote-btn"
+                    className={`hint-vote-btn ${gameState.hintsRevealed >= 2 ? 'hint-vote-btn-reveal' : ''}`}
                     onClick={onRequestHint}
                     disabled={gameState.hintVotes.includes(playerId)}
                   >
-                    {gameState.hintVotes.includes(playerId) ? 'Vote Sent' : 'Request Hint'}
+                    {gameState.hintVotes.includes(playerId)
+                      ? 'Vote Sent'
+                      : gameState.hintsRevealed >= 2
+                        ? 'Reveal Answer'
+                        : 'Request Hint'}
                   </button>
                   {gameState.hintVotes.length > 0 && (
                     <div className="hint-vote-status">
