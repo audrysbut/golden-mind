@@ -12,7 +12,7 @@ interface HomeScreenProps {
 
 export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, error, initialRoomId }: HomeScreenProps) {
   const [name, setName] = useState(() => localStorage.getItem(STORAGE_KEY) || '')
-  const [mode, setMode] = useState<'menu' | 'solo' | 'join'>(initialRoomId ? 'join' : 'menu')
+  const [mode] = useState<'menu' | 'join'>(initialRoomId ? 'join' : 'menu')
 
   useEffect(() => {
     if (name) localStorage.setItem(STORAGE_KEY, name)
@@ -63,31 +63,6 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
     )
   }
 
-  if (mode === 'solo') {
-    return (
-      <div className="screen home-screen">
-        <h1 className="game-title">Golden Mind</h1>
-        <p className="subtitle">Solo Practice</p>
-        <div className="card">
-          <label htmlFor="solo-name">Your Name</label>
-          <input
-            id="solo-name"
-            type="text"
-            value={name}
-            onChange={handleNameChange}
-            placeholder="Enter your name"
-            maxLength={20}
-            autoFocus
-          />
-          <button className="btn btn-primary" onClick={handleSolo} disabled={!name.trim()}>
-            Start Practice
-          </button>
-          <button className="btn btn-secondary" onClick={() => setMode('menu')}>Back</button>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="screen home-screen">
       <h1 className="game-title">Golden Mind</h1>
@@ -106,7 +81,7 @@ export default function HomeScreen({ onStartSolo, onCreateRoom, onJoinRoom, erro
         <button className="btn btn-primary" onClick={handleCreate} disabled={!name.trim()}>
           Create Game
         </button>
-        <button className="btn btn-secondary" onClick={() => setMode('solo')} disabled={!name.trim()}>
+        <button className="btn btn-secondary" onClick={handleSolo} disabled={!name.trim()}>
           Solo Practice
         </button>
       </div>
