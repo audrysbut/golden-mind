@@ -173,13 +173,15 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     }, 3000)
   }, [isHost, players, playerId, addMessage, broadcastState, sendToAll, startRound])
 
-  const submitGuess = useCallback((text: string) => {
+  const submitGuess = useCallback((text: string, senderPlayerId?: string, senderPlayerName?: string) => {
     const state = hostStateRef.current
     if (!state || state.phase !== 'playing') return
     const question = state.currentQuestion
     if (!question) return
 
-    const player = state.players.find(p => p.id === playerId)
+    const actualPlayerId = senderPlayerId ?? playerId
+    const actualPlayerName = senderPlayerName ?? playerName
+    const player = state.players.find(p => p.id === actualPlayerId)
     if (!player || player.guessedCorrectly) return
 
     const correct = checkAnswer(question, text)
@@ -187,34 +189,41 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
 
     if (correct) {
       const updatedPlayers = state.players.map(p =>
-        p.id === playerId
+        p.id === actualPlayerId
           ? { ...p, points: p.points + points, guessedCorrectly: true, roundsWon: p.roundsWon + 1 }
           : p
       )
-      const answer: ChatMessage = addMessage('correct', `${playerName} guessed correctly! (+${points} pts)`, playerId, playerName)
+      const answer: ChatMessage = addMessage('correct', `${actualPlayerName} guessed correctly! (+${points} pts)`, actualPlayerId, actualPlayerName)
       const newState: GameState = {
         ...state,
         players: updatedPlayers,
-        currentAnswers: [...state.currentAnswers, { playerId, playerName, answer: text, correct, pointsEarned: points }],
+        currentAnswers: [...state.currentAnswers, { playerId: actualPlayerId, playerName: actualPlayerName, answer: text, correct, pointsEarned: points }],
         messages: [...state.messages, answer],
       }
+
+      const allCorrect = updatedPlayers.every(p => p.guessedCorrectly)
+      if (allCorrect) {
+        endRound(newState)
+        return
+      }
+
       hostStateRef.current = newState
       setGameState(newState)
       broadcastState(newState)
-      sendToAll({ type: 'guess-result', playerId, playerName, text, correct, pointsEarned: points })
+      sendToAll({ type: 'guess-result', playerId: actualPlayerId, playerName: actualPlayerName, text, correct, pointsEarned: points })
     } else {
-      const answer: ChatMessage = addMessage('wrong', `${playerName} guessed: ${text}`, playerId, playerName)
+      const answer: ChatMessage = addMessage('wrong', `${actualPlayerName} guessed: ${text}`, actualPlayerId, actualPlayerName)
       const newState: GameState = {
         ...state,
-        currentAnswers: [...state.currentAnswers, { playerId, playerName, answer: text, correct, pointsEarned: 0 }],
+        currentAnswers: [...state.currentAnswers, { playerId: actualPlayerId, playerName: actualPlayerName, answer: text, correct, pointsEarned: 0 }],
         messages: [...state.messages, answer],
       }
       hostStateRef.current = newState
       setGameState(newState)
       broadcastState(newState)
-      sendToAll({ type: 'guess-result', playerId, playerName, text, correct, pointsEarned: 0 })
+      sendToAll({ type: 'guess-result', playerId: actualPlayerId, playerName: actualPlayerName, text, correct, pointsEarned: 0 })
     }
-  }, [playerId, playerName, addMessage, broadcastState, sendToAll])
+  }, [playerId, playerName, addMessage, broadcastState, sendToAll, endRound])
 
   const sendChatMessage = useCallback((text: string) => {
     if (isHost) {
@@ -244,7 +253,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
       return
     }
     if (message.type === 'guess' && isHost) {
-      submitGuess(message.text)
+      submitGuess(message.text, message.playerId, message.playerName)
     }
   }, [isHost, submitGuess])
 
