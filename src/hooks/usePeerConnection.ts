@@ -20,7 +20,6 @@ interface UsePeerConnectionReturn {
   sendToAll: (message: Message) => void
   sendToHost: (message: Message) => void
   onMessage: (callback: (message: Message, playerId: string) => void) => void
-  disconnect: () => void
 }
 
 export default function usePeerConnection(): UsePeerConnectionReturn {
@@ -229,6 +228,5 @@ export default function usePeerConnection(): UsePeerConnectionReturn {
     sendToAll,
     sendToHost,
     onMessage,
-    disconnect,
   }
 }

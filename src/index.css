@@ -222,39 +222,6 @@ input[type="text"]::placeholder {
   font-size: 1.125rem;
 }
 
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-  color: var(--text-dim);
-  font-size: 0.875rem;
-}
-
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.divider span {
-  padding: 0 0.75rem;
-}
-
-.join-row {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.join-row input {
-  flex: 1;
-}
-
-.join-row .btn {
-  flex-shrink: 0;
-}
-
 .error {
   color: #ef4444;
   font-size: 0.875rem;

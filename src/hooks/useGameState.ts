@@ -21,10 +21,8 @@ interface UseGameStateReturn {
   gameState: GameState
   handleMessage: (message: Message, senderId: string) => void
   startGame: () => void
-  submitGuess: (text: string) => void
   sendChatMessage: (text: string) => void
   requestHint: () => void
-  resetGame: () => void
 }
 
 function createInitialState(): GameState {
@@ -293,16 +291,6 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     }
   }, [isHost, playerId, playerName, sendToHost, revealNextHint, broadcastState, endRound])
 
-  const resetGame = useCallback(() => {
-    clearTimer()
-    questionsRef.current = []
-    hostStateRef.current = null
-    const fresh = createInitialState()
-    setGameState(fresh)
-    if (isHost) {
-      broadcastState(fresh)
-    }
-  }, [clearTimer, isHost, broadcastState])
 
   const handleMessage = useCallback((message: Message, _senderId: string) => {
     if (message.type === 'game-state') {
@@ -363,9 +351,7 @@ export default function useGameState(options: UseGameStateOptions): UseGameState
     gameState,
     handleMessage,
     startGame,
-    submitGuess,
     sendChatMessage,
     requestHint,
-    resetGame,
   }
 }

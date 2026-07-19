@@ -52,15 +52,9 @@ export type Message =
   | { type: 'join'; playerName: string; playerId: string }
   | { type: 'player-joined'; player: Player }
   | { type: 'player-left'; playerId: string }
-  | { type: 'start-game' }
   | { type: 'game-state'; state: GameState }
   | { type: 'guess'; playerId: string; playerName: string; text: string }
   | { type: 'guess-result'; playerId: string; playerName: string; text: string; correct: boolean; pointsEarned: number }
-  | { type: 'hint-reveal'; hintsRevealed: number }
-  | { type: 'chat-message'; message: ChatMessage }
   | { type: 'round-end'; answer: string; players: Player[] }
   | { type: 'game-over'; players: Player[] }
-  | { type: 'timer-sync'; timeRemaining: number }
   | { type: 'hint-vote'; playerId: string; playerName: string }
-  | { type: 'ping' }
-  | { type: 'pong' }
