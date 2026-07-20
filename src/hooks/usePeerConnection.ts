@@ -3,6 +3,14 @@ import Peer, { DataConnection } from 'peerjs'
 import { v4 as uuidv4 } from 'uuid'
 import { Message, Player } from '../types'
 
+const ICE_SERVERS: RTCIceServer[] = [
+  { urls: 'stun:stun.l.google.com:19302' },
+  { urls: 'stun:stun1.l.google.com:19302' },
+  { urls: 'stun:stun2.l.google.com:19302' },
+  { urls: 'stun:stun3.l.google.com:19302' },
+  { urls: 'stun:stun4.l.google.com:19302' },
+]
+
 interface PeerConnectionState {
   peer: Peer | null
   connections: DataConnection[]
@@ -63,7 +71,7 @@ export default function usePeerConnection(): UsePeerConnectionReturn {
 
   const createRoom = useCallback((playerName: string): string => {
     const roomId = uuidv4()
-    const peer = new Peer(roomId)
+    const peer = new Peer(roomId, { config: { iceServers: ICE_SERVERS } })
     peerRef.current = peer
 
     peer.on('open', () => {
@@ -139,7 +147,7 @@ export default function usePeerConnection(): UsePeerConnectionReturn {
 
   const joinRoom = useCallback((roomId: string, playerName: string) => {
     const playerId = uuidv4()
-    const peer = new Peer(playerId)
+    const peer = new Peer(playerId, { config: { iceServers: ICE_SERVERS } })
     peerRef.current = peer
 
     peer.on('open', () => {
